@@ -19,7 +19,7 @@ class main
         {
             var matches = Regex.Matches(Line, "[0-9]+");
             ToTange(matches);
-            if (ContainsFully()) { count++; }
+            if (ContainsPart()) { count++; }
         }
         Console.WriteLine(count);
     }
@@ -35,5 +35,13 @@ class main
         if(R2.start <= R1.start && R2.end >= R1.end) return true;
         return false;
     }
-    
+    static bool ContainsPart() 
+    {
+        if(R1.start <= R2.start && R1.end >= R2.start) return true;
+        if(R1.start <= R2.end && R1.end >= R2.end) return true;
+
+        if (R2.start <= R1.start && R2.end >= R1.start) return true;
+        if (R2.start <= R1.end && R2.end >= R1.end) return true;
+        return false;
+    }
 }

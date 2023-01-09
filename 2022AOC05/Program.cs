@@ -25,7 +25,7 @@ class main
             //moving crane
             if (Line[0] == 'm') 
             {
-                crane.Move( Regex.Matches(Line, "[0-9]+"));
+                crane.Move9001( Regex.Matches(Line, "[0-9]+"));
             }
         }
         crane.GetFirst(10);

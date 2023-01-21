@@ -66,10 +66,10 @@ class main
             }
         }
         root.GetwholeSize();
-        List<Folder> cool = GetAll(root, x => x.GetwholeSize() <= 100000);
-        int suma = 0;
-        foreach(Folder folder in cool) {suma += folder.GetwholeSize(); }
-        Console.WriteLine(suma);
+        List<Folder> cool = GetAll(root, x => x.GetwholeSize() >= 30000000 - (70000000 - root.GetwholeSize()));
+        cool.Sort((a,b) => a.GetwholeSize().CompareTo(b.GetwholeSize()));
+
+        Console.WriteLine(cool[0].GetwholeSize());
 
     }
     

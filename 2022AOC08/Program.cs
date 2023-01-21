@@ -1,17 +1,24 @@
-﻿struct tree 
+﻿using System.ComponentModel;
+using System.Reflection.Metadata.Ecma335;
+
+struct tree 
 {
     public int height;
     public bool visible = false;
+    public int visionScore = 0;
     public tree(int height) { this.height = height; }
 }
 class main 
 {
+    static int pocetRadku;
+    static int pocetSloupcu;
+    static tree[,] Array;
     static void Main(string[] args) 
     {
         string[] Lines = File.ReadAllLines(Path.Combine(Environment.CurrentDirectory, "Input.txt"));
-        int pocetRadku = Lines.Length;
-        int pocetSloupcu = Lines[0].Length;
-        tree[,] Array = new tree[pocetRadku,pocetSloupcu];
+        pocetRadku = Lines.Length;
+        pocetSloupcu = Lines[0].Length;
+        Array = new tree[pocetRadku,pocetSloupcu];
 
         for(int i = 0;i < pocetRadku; i++) 
         {
@@ -21,39 +28,36 @@ class main
             }
         }
 
-        int vid;
-
-        for (int radek = 0; radek < pocetRadku; radek++)
+        for(int y = 0;y < pocetRadku; y++) 
         {
-            vid = -1;
-
-            for (int i = 0; i < pocetSloupcu; i++)
+            for(int x = 0; x < pocetSloupcu; x++) 
             {
-                if (Array[radek,i].height > vid) {vid = Array[radek,i].height; Array[radek, i].visible = true; }
-            }
-            vid = -1;
-            for (int i = pocetSloupcu-1; i >= 0; i--)
-            {
-                if (Array[radek, i].height > vid) { vid = Array[radek, i].height; Array[radek, i].visible = true; }
+                int sum = 1;
+                sum *= GetVisionScore(y => ++y, x => x, y, x, Array[y, x].height);
+                sum *= GetVisionScore(y => --y, x => x, y, x, Array[y, x].height);
+                sum *= GetVisionScore(y => y, x => ++x, y, x, Array[y, x].height);
+                sum *= GetVisionScore(y => y, x => --x, y, x, Array[y, x].height);
+                Array[y,x].visionScore = sum;
             }
         }
-        for (int sloupec = 0; sloupec < pocetSloupcu; sloupec++)
-        {
-            vid = -1;
-
-            for (int i = 0; i < pocetRadku; i++)
+        int max = 0;
+        foreach(tree t in Array) {if(t.visionScore > max) max = t.visionScore; }
+        Console.WriteLine(max);
+      
+    }
+    static int GetVisionScore( Func<int, int> posunY,Func<int,int> posunX, int y, int x, int vyska)
+    {
+        int score = 0;
+        while (true) { 
+            x = posunX(x);
+            y = posunY(y);
+            if (y >= pocetRadku || y < 0 || x >= pocetSloupcu || x < 0)
             {
-                if (Array[i, sloupec].height > vid) { vid = Array[i, sloupec].height; Array[i, sloupec].visible = true; }
+                return score;
             }
-            vid = -1;
-            for (int i = pocetRadku-1; i >= 0; i--)
-            {
-                if (Array[i, sloupec].height > vid) { vid = Array[i, sloupec].height; Array[i, sloupec].visible = true; }
-            }
+            if (Array[y, x].height >= vyska) { return ++score; }
+            score++;
         }
-        int sum = 0;
-        foreach(tree t in Array) { if (t.visible) { sum++; } }
-        Console.WriteLine(sum);
     }
 }
 

@@ -30,19 +30,19 @@
     }
     public bool IsHeadRightUp(Coordinates tail) 
     {
-        return tail.y + 2 == y && tail.x + 1 == x || tail.y + 1 == y && tail.x + 2 == x;
+        return tail.y + 2 == y && tail.x + 1 == x || tail.y + 1 == y && tail.x + 2 == x || tail.y + 2 == y && tail.x + 2 == x;
     }
     public bool IsHeadRightDown(Coordinates tail)
     {
-        return tail.y - 2 == y && tail.x + 1 == x || tail.y - 1 == y && tail.x + 2 == x;
+        return tail.y - 2 == y && tail.x + 1 == x || tail.y - 1 == y && tail.x + 2 == x || tail.y - 2 == y && tail.x + 2 == x;
     }
     public bool IsHeadLeftUp(Coordinates tail)
     {
-        return tail.y + 2 == y && tail.x - 1 == x || tail.y + 1 == y && tail.x - 2 == x;
+        return tail.y + 2 == y && tail.x - 1 == x || tail.y + 1 == y && tail.x - 2 == x || tail.y + 2 == y && tail.x - 2 == x;
     }
     public bool IsHeadLeftDown(Coordinates tail)
     {
-        return tail.y - 2 == y && tail.x - 1 == x || tail.y - 1 == y && tail.x - 2 == x;
+        return tail.y - 2 == y && tail.x - 1 == x || tail.y - 1 == y && tail.x - 2 == x || tail.y - 2 == y && tail.x - 2 == x;
     }
 
 
@@ -54,9 +54,17 @@ class main
     static HashSet<Coordinates> Set = new();
     static Coordinates Head = new();
     static Coordinates Tail = new();
+    static Coordinates Tail2 = new();
+    static Coordinates Tail3 = new();
+    static Coordinates Tail4 = new();
+    static Coordinates Tail5 = new();
+    static Coordinates Tail6 = new();
+    static Coordinates Tail7 = new();
+    static Coordinates Tail8 = new();
+    static Coordinates Tail9 = new();
     static void Main()
     {
-        Set.Add(Tail);
+        Set.Add(Tail9);
 
 
         foreach (string input in File.ReadAllLines(Path.Combine(Environment.CurrentDirectory, "Input.txt")))
@@ -87,11 +95,19 @@ class main
                     Head.y--;
                     break;
             }
-            Check();
-            Set.Add(Tail);
+            Check(ref Tail,ref Head);
+            Check(ref Tail2,ref Tail);
+            Check(ref Tail3,ref  Tail2);
+            Check(ref Tail4,ref  Tail3);
+            Check(ref Tail5,ref  Tail4);
+            Check(ref Tail6,ref  Tail5);
+            Check(ref Tail7,ref  Tail6);
+            Check(ref Tail8,ref  Tail7);
+            Check(ref Tail9,ref  Tail8);
+            Set.Add(Tail9);
         }
     }
-    static void Check() 
+    static void Check(ref Coordinates Tail,ref Coordinates Head) 
     {
         
         if (Head.IsTouching(Tail)) { return; }

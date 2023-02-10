@@ -1,0 +1,16 @@
+C:\Users\rutaj\source\repos\2022AOC10\2022AOC10\bin\Debug\net6.0\2022AOC10.exe
+C:\Users\rutaj\source\repos\2022AOC10\2022AOC10\bin\Debug\net6.0\Input.txt
+C:\Users\rutaj\source\repos\2022AOC10\2022AOC10\bin\Debug\net6.0\2022AOC10.deps.json
+C:\Users\rutaj\source\repos\2022AOC10\2022AOC10\bin\Debug\net6.0\2022AOC10.runtimeconfig.json
+C:\Users\rutaj\source\repos\2022AOC10\2022AOC10\bin\Debug\net6.0\2022AOC10.dll
+C:\Users\rutaj\source\repos\2022AOC10\2022AOC10\bin\Debug\net6.0\2022AOC10.pdb
+C:\Users\rutaj\source\repos\2022AOC10\2022AOC10\obj\Debug\net6.0\2022AOC10.csproj.AssemblyReference.cache
+C:\Users\rutaj\source\repos\2022AOC10\2022AOC10\obj\Debug\net6.0\2022AOC10.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rutaj\source\repos\2022AOC10\2022AOC10\obj\Debug\net6.0\2022AOC10.AssemblyInfoInputs.cache
+C:\Users\rutaj\source\repos\2022AOC10\2022AOC10\obj\Debug\net6.0\2022AOC10.AssemblyInfo.cs
+C:\Users\rutaj\source\repos\2022AOC10\2022AOC10\obj\Debug\net6.0\2022AOC10.csproj.CoreCompileInputs.cache
+C:\Users\rutaj\source\repos\2022AOC10\2022AOC10\obj\Debug\net6.0\2022AOC10.dll
+C:\Users\rutaj\source\repos\2022AOC10\2022AOC10\obj\Debug\net6.0\refint\2022AOC10.dll
+C:\Users\rutaj\source\repos\2022AOC10\2022AOC10\obj\Debug\net6.0\2022AOC10.pdb
+C:\Users\rutaj\source\repos\2022AOC10\2022AOC10\obj\Debug\net6.0\2022AOC10.genruntimeconfig.cache
+C:\Users\rutaj\source\repos\2022AOC10\2022AOC10\obj\Debug\net6.0\ref\2022AOC10.dll

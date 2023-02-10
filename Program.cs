@@ -4,7 +4,6 @@ class main
 {
     static int cycle = 0;
     static int x = 1;
-    static int sum = 0;
     static void Main() 
     {
         foreach (string input in File.ReadAllLines(Path.Combine(Environment.CurrentDirectory, "Input.txt"))) 
@@ -18,14 +17,9 @@ class main
                 case "noop":
                     Noop();
                     break;
-
-                
             }
-        
+            
         }
-        Console.WriteLine(sum);
-
-
     }
     static void Noop()
     {
@@ -34,10 +28,10 @@ class main
     }
     static void CheckCykle() 
     {
-        if(cycle  > 19 &&( cycle -20) % 40 == 0) 
-        { 
-            sum += x * cycle; 
-        }
+        int drawPosition = cycle % 40 -1;
+        if (drawPosition  >= x -1 && drawPosition <= x+1 ) { Console.Write('#'); }
+        else { Console.Write("."); }
+        if(cycle % 40 == 0) { Console.WriteLine(); }
     }
     static void addx(int x) 
     {
